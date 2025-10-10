@@ -1,0 +1,13 @@
+{
+  "name": "pdf-generator",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "generate": "node generate.js data.json output.pdf"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "pdfkit": "^0.17.2",
+    "puppeteer": "^24.23.0"
+  }
+}
