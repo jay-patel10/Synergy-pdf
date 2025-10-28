@@ -74,6 +74,70 @@ async function updatedPdf(data) {
   if (data.BottomDesc) {
     page4.find("span.text.text-body-sm").eq(0).text(data.BottomDesc);
   }
+    // Page 4 - Update quadrant labels
+if (data.quadrants && Array.isArray(data.quadrants)) {
+  const page4 = $('section[aria-label="Page 4"]');
+
+  // Exact position mapping for each quadrant
+  const coordinateMap = {
+    quadrant1: {
+      '3,3': { left: 1600, bottom: 943 },
+      '4,4': { left: 1970, bottom: 1185 },
+      '3,4': { left: 1970, bottom: 943 },
+      '4,3': { left: 1600, bottom: 1185 }
+    },
+    quadrant2: {
+      '1,4': { left: 850, bottom: 1185 },
+      '2,3': { left: 1281, bottom: 943 },
+      '1,3': { left: 850, bottom: 943 },
+      '2,4': { left: 1281, bottom: 1185 }
+    },
+    quadrant3: {
+      '1,2': { left: 850, bottom: 615 },
+      '2,2': { left: 1281, bottom: 615 },
+      '2,1': { left: 1281, bottom: 385 },
+      '1,1': { left: 850, bottom: 385 }
+    },
+    quadrant4: {
+      '2,3': { left: 1600, bottom: 615 },
+      '1,4': { left: 1970, bottom: 385 },
+      '1,3': { left: 1600, bottom: 385 },
+      '2,4': { left: 1970, bottom: 615 }
+    }
+  };
+
+  data.quadrants.forEach(q => {
+    const { id, x, y } = q;
+    if (!id || x == null || y == null) return;
+
+    // Get the coordinate key
+    const coordKey = `${x},${y}`;
+    
+    // Get the position for this quadrant and coordinate
+    const position = coordinateMap[id]?.[coordKey];
+    
+    if (!position) {
+      console.log(`No position found for ${id} at (${x},${y})`);
+      return;
+    }
+
+    // Find ALL spans with this id
+    const spans = page4.find(`#${id}`);
+    
+    // Update the FIRST available span with this id
+    // Or you can update all of them to the same position
+    if (spans.length > 0) {
+      // Update only the first span (or loop through all if needed)
+      const el = spans.first();
+      el.text(`(${x},${y})`);
+      el.css({
+        'left': `${position.left}px`,
+        'bottom': `${position.bottom}px`
+      });
+    }
+  });
+}
+  
 
   // Page 6 - Using new class names
   const page6 = $('section[aria-label="Page 6"]');
