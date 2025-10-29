@@ -70,29 +70,13 @@ export async function generatePDF() {
     }
 
     @font-face {
-      font-family: 'Montserrat-Bold_l7_1';
-      src: url('${fontToBase64(path.join(fontsDir, 'Montserrat-Bold_l7_1.woff2'))}') format('woff2');
-      font-weight: 700;
-      font-style: normal;
-      font-display: block;
-    }
-
-    @font-face {
       font-family: 'Montserrat-Medium_l6';
       src: url('${fontToBase64(path.join(fontsDir, 'Montserrat-Medium_l6.woff2'))}') format('woff2');
       font-weight: 500;
       font-style: normal;
       font-display: block;
     }
-
-    @font-face {
-      font-family: 'Montserrat-Medium_l6_1';
-      src: url('${fontToBase64(path.join(fontsDir, 'Montserrat-Medium_l6_1.woff2'))}') format('woff2');
-      font-weight: 500;
-      font-style: normal;
-      font-display: block;
-    }
-
+      
     @font-face {
       font-family: 'Montserrat-SemiBoldItalic_m8';
       src: url('${fontToBase64(path.join(fontsDir, 'Montserrat-SemiBoldItalic_m8.woff2'))}') format('woff2');

@@ -86,22 +86,8 @@
 }
 
 @font-face {
-  font-family: 'Montserrat-Bold_l7_1';
-  src: url('/fonts/Montserrat-Bold_l7_1.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'Montserrat-Medium_l6';
   src: url('/fonts/Montserrat-Medium_l6.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat-Medium_l6_1';
-  src: url('/fonts/Montserrat-Medium_l6_1.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
 }
@@ -125,146 +111,219 @@
 
 <style type="text/css">
 
-/* Typography - Hero & Large Headers */
-.hero-heading-xl {font-size:49px; font-family:Montserrat-Bold_l7; color:#FFF;}
-.hero-heading-lg {font-size:26px; font-family:Montserrat-SemiBold_l8; color:#FFF;}
-.section-title-primary {font-size:31px; font-family:Lato-Semibold_n5; color:#FFF;}
-.section-title-bold {font-size:31px; font-family:Montserrat-Bold_l7; color:#FFF;}
+/* ==================== CSS VARIABLES ==================== */
+:root {
+  /* Colors */
+  --color-white: #FFF;
+  --color-blue-primary: #1B77BA;
+  --color-blue-alt: #1B75BB;
+  --color-blue-secondary: #1980C2;
+  --color-green-primary: #37B34A;
+  --color-green-light: #79AF23;
+  --color-gold: #C69128;
+  --color-gray-dark: #606161;
+  --color-gray-medium: #6D6E70;
+  --color-gray-light: #929497;
+  --color-red: #E2474B;
+  --color-red-badge: #DA362A;
+  --color-magenta: #D91C5C;
+  --color-orange: #F58948;
+  --color-orange-badge: #FF6B00;
+  --color-yellow: #EBB730;
+  --color-cyan: #49B8C9;
+  --color-light-blue: #7BABF5;
+  --color-green-badge: #38A957;
+  --color-off-white-1: #F7FCFE;
+  --color-off-white-2: #F6FCFE;
 
-/* Headings - Primary Blue */
-.heading-primary-blue {font-size:28px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
-.heading-lg-blue {font-size:61px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
-.heading-md-blue {font-size:30px; font-family:Montserrat-SemiBold_l8; color:#1B77BA;}
-.heading-sm-blue-semibold {font-size:28px; font-family:Montserrat-SemiBold_l8; color:#1B77BA;}
-.heading-xs-blue {font-size:26px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
-.heading-xxs-blue {font-size:24px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
-.subheading-blue {font-size:23px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
-.subheading-sm-blue {font-size:21px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
-.subheading-xs-blue {font-size:20px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
-.subheading-xxs-blue {font-size:18px; font-family:Montserrat-SemiBold_l8; color:#1B77BA;}
-.subheading-tiny-blue {font-size:17px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
-.subheading-mini-blue {font-size:17px; font-family:Montserrat-SemiBold_l8; color:#1B77BA;}
-.label-blue-bold {font-size:14px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
-.label-blue-tiny {font-size:13px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
-.label-blue-micro {font-size:6px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
-.heading-xl-blue {font-size:55px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
-.heading-blue-light {font-size:47px; font-family:Montserrat-Medium_l6; color:#1B77BA;}
-.heading-blue-medium {font-size:27px; font-family:Montserrat-SemiBold_l8; color:#1B77BA;}
-.heading-blue-alt {font-size:24px; font-family:Montserrat-Bold_l7; color:#1B75BB;}
-.heading-blue-giant {font-size:30px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
-.heading-blue-semibold-lg {font-size:26px; font-family:Montserrat-SemiBold_l8; color:#1B77BA;}
-.heading-blue-semibold-md {font-size:25px; font-family:Montserrat-SemiBold_l8; color:#1B77BA;}
-.heading-blue-xlarge {font-size:29px; font-family:Montserrat-Bold_l7; color:#1B77BA;}
+  /* Fonts */
+  --font-montserrat-bold: Montserrat-Bold_l7;
+  --font-montserrat-semibold: Montserrat-SemiBold_l8;
+  --font-montserrat-semibold-italic: Montserrat-SemiBoldItalic_m8;
+  --font-montserrat-medium: Montserrat-Medium_l6;
+  --font-montserrat-medium-alt: Montserrat-Medium_l6_1;
+  --font-montserrat-black: Montserrat-Black_li;
+  --font-lato-semibold: Lato-Semibold_n5;
+  --font-arial: ArialMT_lf;
+  
+  /* Font Sizes */
+  --fs-6: 6px;
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-17: 17px;
+  --fs-18: 18px;
+  --fs-19: 19px;
+  --fs-20: 20px;
+  --fs-21: 21px;
+  --fs-22: 22px;
+  --fs-23: 23px;
+  --fs-24: 24px;
+  --fs-25: 25px;
+  --fs-26: 26px;
+  --fs-27: 27px;
+  --fs-28: 28px;
+  --fs-29: 29px;
+  --fs-30: 30px;
+  --fs-31: 31px;
+  --fs-34: 34px;
+  --fs-35: 35px;
+  --fs-36: 36px;
+  --fs-41: 41px;
+  --fs-47: 47px;
+  --fs-49: 49px;
+  --fs-55: 55px;
+  --fs-61: 61px;
+}
 
-/* Headings - Green/Success */
-.heading-success-lg {font-size:29px; font-family:Montserrat-SemiBold_l8; color:#37B34A;}
-.heading-success-md {font-size:26px; font-family:Montserrat-Bold_l7; color:#37B34A;}
-.heading-success-semibold {font-size:24px; font-family:Montserrat-SemiBold_l8; color:#37B34A;}
-.heading-success-xl {font-size:41px; font-family:Montserrat-SemiBold_l8; color:#37B34A;}
-.heading-success-xxl {font-size:28px; font-family:Montserrat-SemiBold_l8; color:#37B34A;}
-.heading-success-semibold-lg {font-size:26px; font-family:Montserrat-SemiBold_l8; color:#37B34A;}
-.subheading-success {font-size:21px; font-family:Montserrat-SemiBold_l8; color:#37B34A;}
-.subheading-success-sm {font-size:20px; font-family:Montserrat-SemiBold_l8; color:#37B34A;}
-.text-success-bold {font-size:20px; font-family:Montserrat-Bold_l7; color:#37B34A;}
-.label-success-bold {font-size:16px; font-family:Montserrat-Bold_l7; color:#37B34A;}
+/* ==================== TYPOGRAPHY - HERO & LARGE HEADERS ==================== */
+.hero-heading-xl {font-size:var(--fs-49); font-family:var(--font-montserrat-bold); color:var(--color-white);}
+.hero-heading-lg {font-size:var(--fs-26); font-family:var(--font-montserrat-semibold); color:var(--color-white);}
+.section-title-primary {font-size:var(--fs-31); font-family:var(--font-lato-semibold); color:var(--color-white);}
+.section-title-bold {font-size:var(--fs-31); font-family:var(--font-montserrat-bold); color:var(--color-white);}
 
-/* Headings - Gold/Premium */
-.heading-premium-xl {font-size:36px; font-family:Montserrat-SemiBoldItalic_m8; color:#C69128;}
-.heading-premium-lg {font-size:35px; font-family:Montserrat-Bold_l7; color:#C69128;}
-.heading-premium-md {font-size:34px; font-family:Montserrat-SemiBold_l8; color:#C69128;}
-.text-premium {font-size:25px; font-family:Montserrat-Medium_l6; color:#C69128;}
-.subheading-premium {font-size:22px; font-family:Montserrat-SemiBoldItalic_m8; color:#1B77BA;}
+/* ==================== HEADINGS - PRIMARY BLUE ==================== */
+.heading-primary-blue {font-size:var(--fs-28); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
+.heading-lg-blue {font-size:var(--fs-61); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
+.heading-md-blue {font-size:var(--fs-30); font-family:var(--font-montserrat-semibold); color:var(--color-blue-primary);}
+.heading-sm-blue-semibold {font-size:var(--fs-28); font-family:var(--font-montserrat-semibold); color:var(--color-blue-primary);}
+.heading-xs-blue {font-size:var(--fs-26); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
+.heading-xxs-blue {font-size:var(--fs-24); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
+.heading-xl-blue {font-size:var(--fs-55); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
+.heading-blue-light {font-size:var(--fs-47); font-family:var(--font-montserrat-medium); color:var(--color-blue-primary);}
+.heading-blue-medium {font-size:var(--fs-27); font-family:var(--font-montserrat-semibold); color:var(--color-blue-primary);}
+.heading-blue-alt {font-size:var(--fs-24); font-family:var(--font-montserrat-bold); color:var(--color-blue-alt);}
+.heading-blue-giant {font-size:var(--fs-30); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
+.heading-blue-semibold-lg {font-size:var(--fs-26); font-family:var(--font-montserrat-semibold); color:var(--color-blue-primary);}
+.heading-blue-semibold-md {font-size:var(--fs-25); font-family:var(--font-montserrat-semibold); color:var(--color-blue-primary);}
+.heading-blue-xlarge {font-size:var(--fs-29); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
 
-/* Body Text - Gray/Dark */
-.text-body-lg {font-size:24px; font-family:Montserrat-Medium_l6; color:#606161;}
-.text-body-lg-bold {font-size:24px; font-family:Montserrat-Bold_l7; color:#606161;}
-.text-body-lg-semibold {font-size:24px; font-family:Montserrat-SemiBold_l8; color:#606161;}
-.text-body-md {font-size:23px; font-family:Montserrat-Medium_l6; color:#606161;}
-.text-body-md-bold {font-size:23px; font-family:Montserrat-Bold_l7; color:#606161;}
-.text-body-sm {font-size:21px; font-family:Montserrat-Medium_l6; color:#606161;}
-.text-body-sm-black {font-size:21px; font-family:Montserrat-Black_li; color:#606161;}
-.text-body-sm-bold {font-size:21px; font-family:Montserrat-Bold_l7; color:#606161;}
-.text-body-sm-arial {font-size:21px; font-family:ArialMT_lf; color:#606161;}
-.text-body-xs {font-size:20px; font-family:Montserrat-Medium_l6; color:#606161;}
-.text-body-xs-black {font-size:18px; font-family:Montserrat-Black_li; color:#606161;}
-.text-body-xxl {font-size:28px; font-family:Montserrat-Medium_l6; color:#606161;}
-.text-body-xl {font-size:27px; font-family:Montserrat-Medium_l6; color:#606161;}
-.heading-gray-black-lg {font-size:24px; font-family:Montserrat-Black_li; color:#606161;}
-.heading-gray-bold {font-size:23px; font-family:Montserrat-Bold_l7; color:#606161;}
+/* Subheadings - Blue */
+.subheading-blue {font-size:var(--fs-23); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
+.subheading-sm-blue {font-size:var(--fs-21); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
+.subheading-xs-blue {font-size:var(--fs-20); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
+.subheading-xxs-blue {font-size:var(--fs-18); font-family:var(--font-montserrat-semibold); color:var(--color-blue-primary);}
+.subheading-tiny-blue {font-size:var(--fs-17); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
+.subheading-mini-blue {font-size:var(--fs-17); font-family:var(--font-montserrat-semibold); color:var(--color-blue-primary);}
 
-/* Text - Light Gray/Muted */
-.text-muted {font-size:23px; font-family:Montserrat-Medium_l6; color:#929497;}
+/* Labels - Blue */
+.label-blue-bold {font-size:var(--fs-14); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
+.label-blue-tiny {font-size:var(--fs-13); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
+.label-blue-micro {font-size:var(--fs-6); font-family:var(--font-montserrat-bold); color:var(--color-blue-primary);}
 
-/* Text - Medium Gray */
-.text-medium-gray-bold {font-size:21px; font-family:Montserrat-Bold_l7; color:#6D6E70;}
-.text-medium-gray {font-size:18px; font-family:Montserrat-Bold_l7; color:#6D6E70;}
-.label-medium-gray {font-size:14px; font-family:Montserrat-Medium_l6; color:#6D6E70;}
-.label-medium-gray-tiny {font-size:12px; font-family:Montserrat-Medium_l6; color:#6D6E70;}
-.label-medium-gray-bold {font-size:14px; font-family:Montserrat-Bold_l7; color:#606161;}
-.label-medium-gray-md {font-size:14px; font-family:Montserrat-Medium_l6; color:#606161;}
-.label-medium-gray-lg {font-size:15px; font-family:Montserrat-Bold_l7; color:#606161;}
-.label-medium-gray-lg-regular {font-size:15px; font-family:Montserrat-Medium_l6; color:#606161;}
+/* Subheading Premium (Blue) */
+.subheading-premium {font-size:var(--fs-22); font-family:var(--font-montserrat-semibold-italic); color:var(--color-blue-primary);}
 
-/* Text - Colored Variants */
-.text-green {font-size:24px; font-family:Montserrat-Medium_l6; color:#79AF23;}
-.text-blue-primary {font-size:24px; font-family:Montserrat-Medium_l6; color:#1980C2;}
-.text-red {font-size:24px; font-family:Montserrat-Medium_l6; color:#E2474B;}
-.text-magenta {font-size:24px; font-family:Montserrat-Medium_l6; color:#D91C5C;}
-.text-orange {font-size:24px; font-family:Montserrat-Medium_l6; color:#F58948;}
-.text-yellow {font-size:24px; font-family:Montserrat-Medium_l6; color:#EBB730;}
-.text-blue-medium {font-size:26px; font-family:Montserrat-Medium_l6; color:#1B77BA;}
-.text-blue-body {font-size:20px; font-family:Montserrat-Medium_l6; color:#1B77BA;}
-.text-blue-body-variant {font-size:20px; font-family:Montserrat-Medium_l6_1; color:#1B77BA;}
+/* ==================== HEADINGS - GREEN/SUCCESS ==================== */
+.heading-success-lg {font-size:var(--fs-29); font-family:var(--font-montserrat-semibold); color:var(--color-green-primary);}
+.heading-success-md {font-size:var(--fs-26); font-family:var(--font-montserrat-bold); color:var(--color-green-primary);}
+.heading-success-semibold {font-size:var(--fs-24); font-family:var(--font-montserrat-semibold); color:var(--color-green-primary);}
+.heading-success-xl {font-size:var(--fs-41); font-family:var(--font-montserrat-semibold); color:var(--color-green-primary);}
+.heading-success-xxl {font-size:var(--fs-28); font-family:var(--font-montserrat-semibold); color:var(--color-green-primary);}
+.heading-success-semibold-lg {font-size:var(--fs-26); font-family:var(--font-montserrat-semibold); color:var(--color-green-primary);}
+.subheading-success {font-size:var(--fs-21); font-family:var(--font-montserrat-semibold); color:var(--color-green-primary);}
+.subheading-success-sm {font-size:var(--fs-20); font-family:var(--font-montserrat-semibold); color:var(--color-green-primary);}
+.text-success-bold {font-size:var(--fs-20); font-family:var(--font-montserrat-bold); color:var(--color-green-primary);}
+.label-success-bold {font-size:var(--fs-16); font-family:var(--font-montserrat-bold); color:var(--color-green-primary);}
 
-/* Badge/Tag Text - Orange */
-.badge-orange-bold {font-size:19px; font-family:Montserrat-Bold_l7; color:#FF6B00;}
-.badge-orange {font-size:19px; font-family:Montserrat-Medium_l6; color:#FF6B00;}
+/* ==================== HEADINGS - GOLD/PREMIUM ==================== */
+.heading-premium-xl {font-size:var(--fs-36); font-family:var(--font-montserrat-semibold-italic); color:var(--color-gold);}
+.heading-premium-lg {font-size:var(--fs-35); font-family:var(--font-montserrat-bold); color:var(--color-gold);}
+.heading-premium-md {font-size:var(--fs-34); font-family:var(--font-montserrat-semibold); color:var(--color-gold);}
+.text-premium {font-size:var(--fs-25); font-family:var(--font-montserrat-medium); color:var(--color-gold);}
 
-/* Badge/Tag Text - Gold */
-.badge-gold-bold {font-size:19px; font-family:Montserrat-Bold_l7; color:#C69128;}
-.badge-gold {font-size:19px; font-family:Montserrat-Medium_l6; color:#C69128;}
+/* ==================== BODY TEXT - GRAY/DARK ==================== */
+.text-body-lg {font-size:var(--fs-24); font-family:var(--font-montserrat-medium); color:var(--color-gray-dark);}
+.text-body-lg-bold {font-size:var(--fs-24); font-family:var(--font-montserrat-bold); color:var(--color-gray-dark);}
+.text-body-lg-semibold {font-size:var(--fs-24); font-family:var(--font-montserrat-semibold); color:var(--color-gray-dark);}
+.text-body-md {font-size:var(--fs-23); font-family:var(--font-montserrat-medium); color:var(--color-gray-dark);}
+.text-body-md-bold {font-size:var(--fs-23); font-family:var(--font-montserrat-bold); color:var(--color-gray-dark);}
+.text-body-sm {font-size:var(--fs-21); font-family:var(--font-montserrat-medium); color:var(--color-gray-dark);}
+.text-body-sm-black {font-size:var(--fs-21); font-family:var(--font-montserrat-black); color:var(--color-gray-dark);}
+.text-body-sm-bold {font-size:var(--fs-21); font-family:var(--font-montserrat-bold); color:var(--color-gray-dark);}
+.text-body-sm-arial {font-size:var(--fs-21); font-family:var(--font-arial); color:var(--color-gray-dark);}
+.text-body-xs {font-size:var(--fs-20); font-family:var(--font-montserrat-medium); color:var(--color-gray-dark);}
+.text-body-xs-black {font-size:var(--fs-18); font-family:var(--font-montserrat-black); color:var(--color-gray-dark);}
+.text-body-xxl {font-size:var(--fs-28); font-family:var(--font-montserrat-medium); color:var(--color-gray-dark);}
+.text-body-xl {font-size:var(--fs-27); font-family:var(--font-montserrat-medium); color:var(--color-gray-dark);}
+.heading-gray-black-lg {font-size:var(--fs-24); font-family:var(--font-montserrat-black); color:var(--color-gray-dark);}
+.heading-gray-bold {font-size:var(--fs-23); font-family:var(--font-montserrat-bold); color:var(--color-gray-dark);}
 
-/* Badge/Tag Text - Light Blue */
-.badge-light-blue-bold {font-size:19px; font-family:Montserrat-Bold_l7; color:#7BABF5;}
-.badge-light-blue {font-size:19px; font-family:Montserrat-Medium_l6; color:#7BABF5;}
+/* ==================== TEXT - LIGHT GRAY/MUTED ==================== */
+.text-muted {font-size:var(--fs-23); font-family:var(--font-montserrat-medium); color:var(--color-gray-light);}
 
-/* Badge/Tag Text - Red */
-.badge-red-bold {font-size:19px; font-family:Montserrat-Bold_l7; color:#DA362A;}
-.badge-red {font-size:19px; font-family:Montserrat-Medium_l6; color:#DA362A;}
+/* ==================== TEXT - MEDIUM GRAY ==================== */
+.text-medium-gray-bold {font-size:var(--fs-21); font-family:var(--font-montserrat-bold); color:var(--color-gray-medium);}
+.text-medium-gray {font-size:var(--fs-18); font-family:var(--font-montserrat-bold); color:var(--color-gray-medium);}
+.label-medium-gray {font-size:var(--fs-14); font-family:var(--font-montserrat-medium); color:var(--color-gray-medium);}
+.label-medium-gray-tiny {font-size:var(--fs-12); font-family:var(--font-montserrat-medium); color:var(--color-gray-medium);}
+.label-medium-gray-bold {font-size:var(--fs-14); font-family:var(--font-montserrat-bold); color:var(--color-gray-dark);}
+.label-medium-gray-md {font-size:var(--fs-14); font-family:var(--font-montserrat-medium); color:var(--color-gray-dark);}
+.label-medium-gray-lg {font-size:var(--fs-15); font-family:var(--font-montserrat-bold); color:var(--color-gray-dark);}
+.label-medium-gray-lg-regular {font-size:var(--fs-15); font-family:var(--font-montserrat-medium); color:var(--color-gray-dark);}
 
-/* Badge/Tag Text - Cyan */
-.badge-cyan-bold {font-size:19px; font-family:Montserrat-Bold_l7; color:#49B8C9;}
-.badge-cyan {font-size:19px; font-family:Montserrat-Medium_l6; color:#49B8C9;}
+/* ==================== TEXT - COLORED VARIANTS ==================== */
+.text-green {font-size:var(--fs-24); font-family:var(--font-montserrat-medium); color:var(--color-green-light);}
+.text-blue-primary {font-size:var(--fs-24); font-family:var(--font-montserrat-medium); color:var(--color-blue-secondary);}
+.text-red {font-size:var(--fs-24); font-family:var(--font-montserrat-medium); color:var(--color-red);}
+.text-magenta {font-size:var(--fs-24); font-family:var(--font-montserrat-medium); color:var(--color-magenta);}
+.text-orange {font-size:var(--fs-24); font-family:var(--font-montserrat-medium); color:var(--color-orange);}
+.text-yellow {font-size:var(--fs-24); font-family:var(--font-montserrat-medium); color:var(--color-yellow);}
+.text-blue-medium {font-size:var(--fs-26); font-family:var(--font-montserrat-medium); color:var(--color-blue-primary);}
+.text-blue-body {font-size:var(--fs-20); font-family:var(--font-montserrat-medium); color:var(--color-blue-primary);}
+.text-blue-body-variant {font-size:var(--fs-20); font-family:var(--font-montserrat-medium-alt); color:var(--color-blue-primary);}
+.text-blue-medium-sm {font-size:var(--fs-13); font-family:var(--font-montserrat-medium); color:var(--color-blue-primary);}
 
-/* Badge/Tag Text - Green */
-.badge-green-bold {font-size:19px; font-family:Montserrat-Bold_l7; color:#38A957;}
-.badge-green {font-size:19px; font-family:Montserrat-Medium_l6; color:#38A957;}
+/* ==================== BADGE/TAG TEXT ==================== */
+/* Orange */
+.badge-orange-bold {font-size:var(--fs-19); font-family:var(--font-montserrat-bold); color:var(--color-orange-badge);}
+.badge-orange {font-size:var(--fs-19); font-family:var(--font-montserrat-medium); color:var(--color-orange-badge);}
 
-/* Text - White */
-.text-white-tiny {font-size:13px; font-family:Montserrat-Medium_l6; color:#FFF;}
-.text-white-md {font-size:23px; font-family:Montserrat-Bold_l7; color:#FFF;}
-.text-white-lg {font-size:22px; font-family:Montserrat-Bold_l7; color:#FFF;}
-.text-white-semibold {font-size:20px; font-family:Montserrat-SemiBold_l8; color:#FFF;}
+/* Gold */
+.badge-gold-bold {font-size:var(--fs-19); font-family:var(--font-montserrat-bold); color:var(--color-gold);}
+.badge-gold {font-size:var(--fs-19); font-family:var(--font-montserrat-medium); color:var(--color-gold);}
 
-/* Text - Light/Off-White */
-.label-light-bold-md {font-size:15px; font-family:Montserrat-Bold_l7; color:#F7FCFE;}
-.label-light-bold-md-alt {font-size:15px; font-family:Montserrat-Bold_l7_1; color:#F7FCFE;}
-.label-light-bold-sm {font-size:15px; font-family:Montserrat-Bold_l7; color:#F6FCFE;}
-.label-light-bold-sm-alt {font-size:15px; font-family:Montserrat-Bold_l7_1; color:#F6FCFE;}
-.label-light-bold-xs {font-size:14px; font-family:Montserrat-Bold_l7; color:#F7FCFE;}
-.label-light-bold-xs-alt {font-size:14px; font-family:Montserrat-Bold_l7_1; color:#F7FCFE;}
-.label-light-bold-xxs {font-size:14px; font-family:Montserrat-Bold_l7; color:#F6FCFE;}
-.label-light-bold-xxs-alt {font-size:14px; font-family:Montserrat-Bold_l7_1; color:#F6FCFE;}
+/* Light Blue */
+.badge-light-blue-bold {font-size:var(--fs-19); font-family:var(--font-montserrat-bold); color:var(--color-light-blue);}
+.badge-light-blue {font-size:var(--fs-19); font-family:var(--font-montserrat-medium); color:var(--color-light-blue);}
 
-/* Text - Blue Variants */
-.text-blue-medium-sm {font-size:13px; font-family:Montserrat-Medium_l6; color:#1B77BA;}
+/* Red */
+.badge-red-bold {font-size:var(--fs-19); font-family:var(--font-montserrat-bold); color:var(--color-red-badge);}
+.badge-red {font-size:var(--fs-19); font-family:var(--font-montserrat-medium); color:var(--color-red-badge);}
 
-/* Transform Utilities - Scale */
+/* Cyan */
+.badge-cyan-bold {font-size:var(--fs-19); font-family:var(--font-montserrat-bold); color:var(--color-cyan);}
+.badge-cyan {font-size:var(--fs-19); font-family:var(--font-montserrat-medium); color:var(--color-cyan);}
+
+/* Green */
+.badge-green-bold {font-size:var(--fs-19); font-family:var(--font-montserrat-bold); color:var(--color-green-badge);}
+.badge-green {font-size:var(--fs-19); font-family:var(--font-montserrat-medium); color:var(--color-green-badge);}
+
+/* ==================== TEXT - WHITE ==================== */
+.text-white-tiny {font-size:var(--fs-13); font-family:var(--font-montserrat-medium); color:var(--color-white);}
+.text-white-md {font-size:var(--fs-23); font-family:var(--font-montserrat-bold); color:var(--color-white);}
+.text-white-lg {font-size:var(--fs-22); font-family:var(--font-montserrat-bold); color:var(--color-white);}
+.text-white-semibold {font-size:var(--fs-20); font-family:var(--font-montserrat-semibold); color:var(--color-white);}
+
+/* ==================== TEXT - LIGHT/OFF-WHITE ==================== */
+.label-light-bold-md {font-size:var(--fs-15); font-family:var(--font-montserrat-bold); color:var(--color-off-white-1);}
+.label-light-bold-md-alt {font-size:var(--fs-15); font-family:var(--font-montserrat-bold); color:var(--color-off-white-1);}
+.label-light-bold-sm {font-size:var(--fs-15); font-family:var(--font-montserrat-bold); color:var(--color-off-white-2);}
+.label-light-bold-sm-alt {font-size:var(--fs-15); font-family:var(--font-montserrat-bold); color:var(--color-off-white-2);}
+.label-light-bold-xs {font-size:var(--fs-14); font-family:var(--font-montserrat-bold); color:var(--color-off-white-1);}
+.label-light-bold-xs-alt {font-size:var(--fs-14); font-family:var(--font-montserrat-bold); color:var(--color-off-white-1);}
+.label-light-bold-xxs {font-size:var(--fs-14); font-family:var(--font-montserrat-bold); color:var(--color-off-white-2);}
+.label-light-bold-xxs-alt {font-size:var(--fs-14); font-family:var(--font-montserrat-bold); color:var(--color-off-white-2);}
+
+/* ==================== TRANSFORM UTILITIES - SCALE ==================== */
 .text-scale-x-lg {transform:scaleX(1.095);}
 .text-scale-x-md {transform:scaleX(1.093);}
 
-/* Transform Utilities - Rotation Matrix */
+/* ==================== TRANSFORM UTILITIES - ROTATION MATRIX ==================== */
 .text-rotate-vertical {transform:matrix(0,-1,1,0,0,0);}
+.text-rotate-vertical-scaled {transform:matrix(0,-1.1,1,0,0,0);}
 .text-rotate-diagonal-1 {transform:matrix(0.81,0.59,-0.59,0.81,0,0);}
 .text-rotate-diagonal-2 {transform:matrix(0.871,0.49,-0.49,0.87,0,0);}
 .text-rotate-diagonal-3 {transform:matrix(0.921,0.39,-0.39,0.92,0,0);}
@@ -302,13 +361,10 @@
 .text-rotate-diagonal-35 {transform:matrix(0.833,-0.55,0.55,0.83,0,0);}
 .text-rotate-diagonal-36 {transform:matrix(0.796,-0.6,0.6,0.8,0,0);}
 .text-rotate-diagonal-37 {transform:matrix(0.76,-0.65,0.65,0.76,0,0);}
-.text-rotate-vertical-scaled {transform:matrix(0,-1.1,1,0,0,0);}
 
 </style>
-<script id="metadata" type="application/json">{"pagecount":11,"title":"Synergy Holistic_H 7-10-25","author":"","subject":"","keywords":"","creator":"Adobe Illustrator 29.5 (Windows)","producer":"Adobe PDF library 17.00","creationdate":"D:20251008081333+06'30'","moddate":"D:20251008095105+05'30'","trapped":"","fileName":"Synergy Holistic_H 7-10-25.pdf","bounds":[[2933,1650],[2933,1650],[2933,1650],[2933,1650],[2933,1650],[2933,1650],[2933,1650],[2933,1650],[2933,1650],[2933,1650],[2933,1650]],"bookmarks":[],"thumbnailType":"","pageType":"html","pageLabels":[]}</script>
-<script id="annotations" type="application/json">{"pages":[11]}</script>
-
 </head>
+
 <body>
 
 <div class="page-container">
@@ -470,7 +526,7 @@
   <span class="text text-premium" data-mappings="[[175,&quot;fl&quot;]]" style="left:222px;bottom:97px;letter-spacing:0.1px;word-spacing:0.05px;">Enablers and Demands that clearly show energy gain and drain. This targeted view turns cultural patterns into actionable leadership levers, guiding Pharco's journey towards a ﬂourishing culture. </span>
   <span class="text heading-primary-blue" style="left:141px;bottom:1258px;letter-spacing:-0.49px;word-spacing:0.14px;">EXECUTIVE SUMMARY </span>
 
-  <span class="text text-body-lg" style="left:143px;top:420px;letter-spacing:0.15px;word-spacing:0.04px;max-width:500px;display:inline-block;white-space:normal;">navigation is essential to prevent regression and achieve sustainable growth.</span>
+  <span class="text text-body-lg" style="left:143px;top:420px;letter-spacing:0.15px;word-spacing:0.04px;max-width:500px;display:inline-block;white-space:normal;">vimal patel navigation is essential to prevent regression and achieve sustainable growth.</span>
 
   <span class="text heading-primary-blue" style="left:2225px;bottom:1258px;letter-spacing:-0.55px;word-spacing:0.22px;">CULTURE WEAVES &amp; THEMES </span>
   <span class="text subheading-blue" style="left:2122px;bottom:1186px;letter-spacing:-0.53px;">WEAVE </span>
@@ -522,7 +578,7 @@
   <span id="quadrant1" class="text subheading-tiny-blue" style="left: 1600px; bottom: 943px;">(3,3)</span>
   <span id="quadrant2" class="text subheading-tiny-blue" style="left: 1281px; bottom: 1185px;">(2,4)</span>
   <span id="quadrant3" class="text subheading-tiny-blue" style="left: 850px; bottom: 615px;">(1,2)</span>
-  <span id="quadrant4" class="text subheading-tiny-blue" style="left: 1600px; bottom: 615px;">(2,3)</span>
+  <span id="quadrant4" class="text subheading-tiny-blue" style="left: 1970px; bottom: 615px;">(2,4)</span>
 
 </div>
 
